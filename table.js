@@ -6,18 +6,20 @@ function loadLocalData() {
     .then((response) => response.json())
     .then((data) => {
       // Flatten year-based structure into array of records
-      const allRecords = [];
+      const records = [];
       Object.keys(data).forEach((year) => {
         if (Array.isArray(data[year])) {
           data[year].forEach((project) => {
             // Add year to project object
             project.year = year;
-            allRecords.push(project);
+            records.push(project);
           });
         }
       });
       
-      if (allRecords.length > 0) {
+      if (records.length > 0) {
+        // Shuffle only once on initial load and store in global allRecords
+        allRecords = shuffleArray(records);
         displayProjects(allRecords);
       } else {
         document.getElementById("projects-container").innerHTML =
@@ -81,13 +83,13 @@ function displayProjects(records) {
       })
     : validRecords;
 
-  // Randomize the order of projects
-  const shuffledRecords = shuffleArray(filteredRecords);
+  // Don't shuffle here - use the already shuffled order from initial load
+  // Filtering maintains the original shuffled order
 
   // Populate tag dropdown
   populateTagFilter(validRecords);
 
-  shuffledRecords.forEach((record, index) => {
+  filteredRecords.forEach((record, index) => {
     const projectDiv = document.createElement("div");
     projectDiv.className = "project-card";
     projectDiv.dataset.projectIndex = index;
