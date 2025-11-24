@@ -1,8 +1,15 @@
+:root {
+    --color-text: #333;
+    --color-background: #fff;
+}
+
 body {
     font-family: Arial, sans-serif;
     max-width: 80vw;
     margin: 150px auto 0px auto;
     line-height: 1.6;
+    background: var(--color-background);
+    color: var(--color-text);
 }
 
 * {
@@ -11,14 +18,14 @@ body {
 a{
     text-decoration: underline;
     font-style: normal;
-    color: #333;
+    color: var(--color-text);
 }
 a:hover{
     font-style: italic;
 }
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 30px;
 }
 
@@ -36,7 +43,7 @@ h1 {
     right: 0;
     z-index: 100;
     padding: 50px 10vw 25px 10vw;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(255, 255, 255) 100%);
     backdrop-filter: blur(30px);
 }
 .filter-placeholder {
@@ -57,7 +64,7 @@ intro-text {
 .library-title {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: var(--color-text);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -78,16 +85,16 @@ intro-text {
     flex-wrap: wrap;
     font-size: 24px; /* base size for header controls */
     font-weight: bold; /* base weight for header controls */
-    color: #333;
+    color: var(--color-text);
     font-family: Arial, sans-serif;
 }
 .selected-tags{
     cursor: pointer;
 }
 .dropdown-selected {
-    color: #333;
+    color: var(--color-text);
     display: inline;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--color-text);
     font-style: italic;
     cursor: pointer;
 }
@@ -107,7 +114,7 @@ intro-text {
     cursor: pointer;
     font-size: inherit;
     font-weight: inherit;
-    color: #333;
+    color: var(--color-text);
     font-style: normal;
     transition: all 0.2s ease;
     display: inline;
@@ -117,11 +124,11 @@ intro-text {
 
 .dropdown-option:hover {
     font-style: italic;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--color-text);
 }
 
 .dropdown-option.selected {
-    color: #333;
+    color: var(--color-text);
     font-weight: bold;
 }
 
@@ -143,7 +150,7 @@ intro-text {
 
 .project-name {
     margin: 15px 0 0 0 !important;
-    color: #333;
+    color: var(--color-text);
     font-size: 1em;
     font-weight: normal;
     font-family: Arial, sans-serif;
@@ -158,7 +165,7 @@ intro-text {
 
 .project-meta {
     font-size: 0.75em;
-    color: #333;
+    color: var(--color-text);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -168,18 +175,18 @@ intro-text {
 .project-made-with,
 .project-team {
     margin: 0;
-    color: #333;
+        color: var(--color-text);
 }
 
 .project-year {
     margin: 0;
-    color: #333;
+    color: var(--color-text);
 }
 
 .project-brief {
     font-size: 0.75em;
     line-height: 1.6;
-    color: #333;
+    color: var(--color-text);
     margin: 0;
 }
 
@@ -213,7 +220,7 @@ intro-text {
 
 
 .no-video {
-    color: #666;
+    color: var(--color-text);
     font-style: italic;
     text-align: center;
 }
@@ -359,8 +366,8 @@ intro-text {
     text-align: center;
     padding: 40px;
     font-size: 18px;
-    color: #666;
-    background: #f9f9f9;
+    color: var(--color-text);
+    background: var(--color-background );
     border-radius: 8px;
     margin: 20px 0;
 }

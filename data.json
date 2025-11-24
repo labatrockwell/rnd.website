@@ -208,7 +208,7 @@
       "Date": "2025-03-17",
       "Team": "Sam Chen",
       "Materials": "Fabric, 3D printing, Embroidery hoops, magnets",
-      "Brief": "Initial tests of 3D prininting on fabric toalter and fine tune dimensionality, form and movement.",
+      "Brief": "Initial tests of 3D prininting on fabric to alter and fine tune dimensionality, form and movement.",
       "Video": "Assets/Videos/3D Printed Fabric.mp4",
       "Active": true
     },
@@ -328,17 +328,6 @@
       "Materials": "Mirrors, 3D printed lenses",
       "Brief": null,
       "Video": "Assets/Videos/Mirror and Lens.mp4",
-      "Image": null,
-      "Active": true
-    },
-    {
-      "Project": "3D Printed Fabric",
-      "Tags": "Materiality",
-      "Date": "2024-01-01",
-      "Team": "Magnets, fabric​\n3D printing on fabric, embroidery hoop",
-      "Materials": "3d printing on fabric",
-      "Brief": null,
-      "Video": "Assets//Videos/3D Printed Fabric.mp4",
       "Image": null,
       "Active": true
     },
