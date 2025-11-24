@@ -5,8 +5,20 @@ function loadLocalData() {
   fetch("data.json")
     .then((response) => response.json())
     .then((data) => {
-      if (data.records && data.records.length > 0) {
-        displayProjects(data.records);
+      // Flatten year-based structure into array of records
+      const allRecords = [];
+      Object.keys(data).forEach((year) => {
+        if (Array.isArray(data[year])) {
+          data[year].forEach((project) => {
+            // Add year to project object
+            project.year = year;
+            allRecords.push(project);
+          });
+        }
+      });
+      
+      if (allRecords.length > 0) {
+        displayProjects(allRecords);
       } else {
         document.getElementById("projects-container").innerHTML =
           "<p>No projects found.</p>";
@@ -21,7 +33,31 @@ function loadLocalData() {
 
 // Global variables for filtering
 let allRecords = [];
-let currentFilter = "";
+let selectedFilters = []; // Array to store multiple selected tags
+
+// Helper function to parse tags from string to array
+function parseTags(tagsString) {
+  if (!tagsString) return [];
+  return tagsString.split(",").map((tag) => tag.trim()).filter((tag) => tag);
+}
+
+// Helper function to extract year from date
+function extractYear(dateString) {
+  if (!dateString) return "";
+  // Date format is "YYYY-MM-DD", extract year
+  const year = dateString.split("-")[0];
+  return year;
+}
+
+// Helper function to shuffle array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+  const shuffled = [...array]; // Create a copy to avoid mutating the original
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
 // Display projects in grid
 function displayProjects(records) {
@@ -31,41 +67,41 @@ function displayProjects(records) {
 
   // Filter valid and active records
   const validRecords = records.filter((record) => {
-    const projectName = record.fields["Project"] || record.fields["project"];
-    const isActive = record.active !== false; // Default to true if not specified
+    const projectName = record["Project"] || record["project"];
+    const isActive = record["Active"] !== false && record["Active"] !== null;
     return projectName && projectName.trim() !== "" && isActive;
   });
 
-  // Apply tag filter if active
-  const filteredRecords = currentFilter
+  // Apply tag filters if active (projects must have at least one of the selected tags)
+  const filteredRecords = selectedFilters.length > 0
     ? validRecords.filter((record) => {
-        const tags = record.fields["Tags"] || [];
-        return tags.includes(currentFilter);
+        const tagsString = record["Tags"] || "";
+        const tags = parseTags(tagsString);
+        return selectedFilters.some(filter => tags.includes(filter));
       })
     : validRecords;
+
+  // Randomize the order of projects
+  const shuffledRecords = shuffleArray(filteredRecords);
 
   // Populate tag dropdown
   populateTagFilter(validRecords);
 
-  filteredRecords.forEach((record, index) => {
+  shuffledRecords.forEach((record, index) => {
     const projectDiv = document.createElement("div");
     projectDiv.className = "project-card";
     projectDiv.dataset.projectIndex = index;
 
-    const projectName = record.fields["Project"];
-    const videoField = record.fields["Video"];
-    const imageField = record.fields["Image"];
+    const projectName = record["Project"];
+    const videoField = record["Video"];
+    const imageField = record["Image"];
+    const dateField = record["Date"];
+    const yearText = extractYear(dateField) || record.year || "";
 
     let mediaHTML = "";
 
     // Handle video
     if (videoField && videoField.trim() !== "") {
-      console.log(
-        "Creating video for project:",
-        projectName,
-        "with field:",
-        videoField
-      );
       mediaHTML = `
                 <video class="project-video" 
                        preload="metadata" 
@@ -76,18 +112,10 @@ function displayProjects(records) {
                     Your browser doesn't support video.
                 </video>
             `;
-    } else {
-      console.log(
-        "No video field for project:",
-        projectName,
-        "videoField:",
-        videoField
-      );
     }
-
-    // Fallback to image if no video
-    if (!mediaHTML && imageField && imageField.trim() !== "") {
-      mediaHTML = `<img class="project-image" src="${imageField}" alt="${projectName}" loading="lazy">`;
+    // If no video, check for image
+    else if (imageField && imageField.trim() !== "") {
+      mediaHTML = `<img class="project-image" src="${imageField}" alt="${projectName}">`;
     }
 
     // Placeholder if no media
@@ -95,32 +123,31 @@ function displayProjects(records) {
       mediaHTML = `<div class="no-video">No media available</div>`;
     }
 
-    // Get team and made with for display
-    const team = record.fields["Team"] || [];
-    const madeWith = record.fields["Made with"] || [];
-    const brief = record.fields["Brief"] || "";
-    const teamText = team.join(", ");
-    const madeWithText = madeWith.join(", ");
-    const yearText = record.fields["Year"] || "";
+    // Get team and materials for display
+    const teamString = record["Team"] || "";
+    const materialsString = record["Materials"] || "";
+    const brief = record["Brief"] || "";
+    const teamText = teamString.trim();
+    const madeWithText = materialsString.trim();
 
     projectDiv.innerHTML = `
             <div class="project-video-container">
                 ${mediaHTML}
             </div>
             <h3 class="project-name">${projectName}</h3>
-            <div class="project-meta" style="display: none;">
-                <div class = "flex">
-                  <p class="project-team">Made by ${teamText}</p>
-                  <p class="project-year">${yearText}</p>
+            <div class="project-info" style="display: none;">
+                <div class="project-meta">
+                    ${teamText ? `<p class="project-team">by ${teamText}</p>` : ""}
+                    ${yearText ? `<p class="project-year">${yearText}</p>` : ""}
+                    ${madeWithText ? `<p class="project-made-with">${madeWithText}</p>` : ""}
                 </div>
-                <p class="project-made-with">${madeWithText}</p>
             </div>
-            <div class="project-detail-content" style="display: none;">
-                <p class="project-brief">${brief}</p>
+            <div class="project-brief" style="display: none;">
+                ${brief ? `<p>${brief}</p>` : ""}
             </div>
         `;
 
-    // Add hover functionality for videos
+    // Add hover functionality for videos (not images)
     const video = projectDiv.querySelector(".project-video");
     if (video) {
       projectDiv.addEventListener("mouseenter", () => {
@@ -149,41 +176,36 @@ function toggleProjectExpansion(projectDiv, record) {
   // Collapse all other expanded projects
   document.querySelectorAll('.project-card.expanded').forEach(card => {
     if (card !== projectDiv) {
-      card.classList.remove('expanded');
-      const detailContent = card.querySelector('.project-detail-content');
-      const metaContent = card.querySelector('.project-meta');
-      if (detailContent) {
-        detailContent.style.display = 'none';
-      }
-      if (metaContent) {
-        metaContent.style.display = 'none';
-      }
+      collapseProject(card);
     }
   });
   
   if (isExpanded) {
-    // Collapse this project
-    projectDiv.classList.remove('expanded');
-    const detailContent = projectDiv.querySelector('.project-detail-content');
-    const metaContent = projectDiv.querySelector('.project-meta');
-    if (detailContent) {
-      detailContent.style.display = 'none';
-    }
-    if (metaContent) {
-      metaContent.style.display = 'none';
-    }
+    // Collapse this project with animation
+    collapseProject(projectDiv);
   } else {
     // Expand this project
     projectDiv.classList.add('expanded');
-    const detailContent = projectDiv.querySelector('.project-detail-content');
-    const metaContent = projectDiv.querySelector('.project-meta');
-    if (detailContent) {
-      detailContent.style.display = 'block';
-    }
-    if (metaContent) {
-      metaContent.style.display = 'block';
-    }
+    const projectInfo = projectDiv.querySelector('.project-info');
+    const projectBrief = projectDiv.querySelector('.project-brief');
+    if (projectInfo) projectInfo.style.display = 'block';
+    if (projectBrief) projectBrief.style.display = 'block';
   }
+}
+
+// Collapse project with animation
+function collapseProject(projectDiv) {
+  projectDiv.classList.add('collapsing');
+  projectDiv.classList.remove('expanded');
+  
+  // Wait for animation to complete before hiding content
+  setTimeout(() => {
+    const projectInfo = projectDiv.querySelector('.project-info');
+    const projectBrief = projectDiv.querySelector('.project-brief');
+    if (projectInfo) projectInfo.style.display = 'none';
+    if (projectBrief) projectBrief.style.display = 'none';
+    projectDiv.classList.remove('collapsing');
+  }, 400); // Match animation duration
 }
 
 // Populate tag filter dropdown
@@ -193,7 +215,8 @@ function populateTagFilter(records) {
   // Get all unique tags from active records
   const allTags = new Set();
   records.forEach((record) => {
-    const tags = record.fields["Tags"] || [];
+    const tagsString = record["Tags"] || "";
+    const tags = parseTags(tagsString);
     tags.forEach((tag) => allTags.add(tag));
   });
 
@@ -202,26 +225,21 @@ function populateTagFilter(records) {
 
   // Define the specific order for tags
   const tagOrder = [
-    "Experiments",
-    "Gestures",
-    "Materials",
-    "Optics",
     "Screens",
-    "Sounds",
+    "Materiality",
+    "Light",
+    "Optics",
+    "Sound",
+    "Gestures",
+    "Multiplayer",
+    "XR",
   ];
 
-  // Always include "Experiments" as the first option (shows all projects)
-  const allOptions = ["Experiments"];
-
-  // Add other tags that exist in the data, in the specified order
-  const existingTags = tagOrder.slice(1).filter((tag) => allTags.has(tag));
-  allOptions.push(...existingTags);
-
-  // Don't filter out the currently selected option - show all options in dropdown
-  const filteredOptions = allOptions;
+  // Add tags that exist in the data, in the specified order
+  const existingTags = tagOrder.filter((tag) => allTags.has(tag));
 
   // Add slash before first option if there are any options
-  if (filteredOptions.length > 0) {
+  if (existingTags.length > 0) {
     const firstSlash = document.createElement("span");
     firstSlash.textContent = " / ";
     firstSlash.style.color = "#666";
@@ -231,25 +249,21 @@ function populateTagFilter(records) {
   }
 
   // Create a single horizontal line with filtered options
-  filteredOptions.forEach((option, index) => {
+  existingTags.forEach((option, index) => {
     const optionElement = document.createElement("span");
     optionElement.className = "dropdown-option";
-    optionElement.setAttribute(
-      "data-value",
-      option === "Experiments" ? "" : option
-    );
+    optionElement.setAttribute("data-value", option);
     optionElement.textContent = option;
 
-    // Highlight the currently selected option
-    const optionValue = option === "Experiments" ? "" : option;
-    if (optionValue === currentFilter) {
+    // Highlight if already selected
+    if (selectedFilters.includes(option)) {
       optionElement.classList.add("selected");
     }
 
     dropdownMenu.appendChild(optionElement);
 
     // Add slash between options (except for the last one)
-    if (index < filteredOptions.length - 1) {
+    if (index < existingTags.length - 1) {
       const slash = document.createElement("span");
       slash.textContent = " / ";
       slash.style.color = "#666";
@@ -260,46 +274,98 @@ function populateTagFilter(records) {
   });
 }
 
-// Handle tag filter change
-function handleTagFilter(selectedValue, selectedText) {
-  currentFilter = selectedValue;
-
-  // Update selected text
-  const displayText = selectedValue === "" ? "Experiments" : selectedText;
-  const dropdownSelected = document.getElementById("dropdown-selected");
-  dropdownSelected.textContent = displayText;
-
-  // Show the selected text again
-  dropdownSelected.style.display = "inline";
-
-  // Update selected option styling
-  document.querySelectorAll(".dropdown-option").forEach((option) => {
-    option.classList.remove("selected");
-  });
-  document
-    .querySelector(`[data-value="${selectedValue}"]`)
-    .classList.add("selected");
-
+// Handle tag filter toggle (add or remove from selection)
+function toggleTagFilter(tagValue) {
+  const index = selectedFilters.indexOf(tagValue);
+  if (index > -1) {
+    // Remove if already selected
+    selectedFilters.splice(index, 1);
+  } else {
+    // Add if not selected
+    selectedFilters.push(tagValue);
+  }
+  
+  // Update UI
+  updateFilterDisplay();
+  
   // Close dropdown
   document.getElementById("dropdown-menu").classList.remove("show");
-
-  // Re-display with new filter
+  
+  // Re-display with new filters
   displayProjects(allRecords);
+}
+
+// Remove a specific filter tag
+function removeFilterTag(tagValue) {
+  const index = selectedFilters.indexOf(tagValue);
+  if (index > -1) {
+    selectedFilters.splice(index, 1);
+    updateFilterDisplay();
+    displayProjects(allRecords);
+  }
+}
+
+// Update the filter display UI
+function updateFilterDisplay() {
+  const placeholder = document.getElementById("filter-placeholder");
+  const selectedTagsContainer = document.getElementById("selected-tags");
+  
+  // Clear selected tags container
+  selectedTagsContainer.innerHTML = "";
+  
+  if (selectedFilters.length === 0) {
+    // Show placeholder
+    placeholder.style.display = "inline";
+  } else {
+    // Hide placeholder and show selected tags
+    placeholder.style.display = "none";
+    
+    selectedFilters.forEach((tag) => {
+      const tagElement = document.createElement("span");
+      tagElement.className = "selected-tag";
+      tagElement.innerHTML = `
+        <span class="tag-name">${tag}</span>
+        <span class="tag-remove" data-tag="${tag}">×</span>
+      `;
+      
+      // Add click handler for remove button
+      const removeBtn = tagElement.querySelector(".tag-remove");
+      removeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        removeFilterTag(tag);
+      });
+      
+      // Add click handler for tag name to open dropdown
+      const tagName = tagElement.querySelector(".tag-name");
+      tagName.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleDropdown();
+      });
+      
+      selectedTagsContainer.appendChild(tagElement);
+    });
+  }
+  
+  // Update dropdown option states
+  document.querySelectorAll(".dropdown-option").forEach((option) => {
+    const optionValue = option.getAttribute("data-value");
+    if (selectedFilters.includes(optionValue)) {
+      option.classList.add("selected");
+    } else {
+      option.classList.remove("selected");
+    }
+  });
 }
 
 // Toggle dropdown menu
 function toggleDropdown() {
   const dropdownMenu = document.getElementById("dropdown-menu");
-  const dropdownSelected = document.getElementById("dropdown-selected");
+  const placeholder = document.getElementById("filter-placeholder");
 
   if (dropdownMenu.classList.contains("show")) {
     dropdownMenu.classList.remove("show");
-    // Show the selected text again when closing
-    dropdownSelected.style.display = "inline";
   } else {
-    // Hide the selected text when opening dropdown
-    dropdownSelected.style.display = "none";
-    // Repopulate dropdown to exclude currently selected option
+    // Repopulate dropdown
     populateTagFilter(allRecords);
     dropdownMenu.classList.add("show");
   }
@@ -307,22 +373,37 @@ function toggleDropdown() {
 
 // Add event listeners for custom dropdown
 function setupDropdownListeners() {
-  const dropdownSelected = document.getElementById("dropdown-selected");
+  const placeholder = document.getElementById("filter-placeholder");
+  const selectedTagsContainer = document.getElementById("selected-tags");
   const dropdownMenu = document.getElementById("dropdown-menu");
 
-  // Toggle dropdown when clicking on the selected area
-  dropdownSelected.addEventListener("click", function (e) {
+  // Toggle dropdown when clicking on placeholder
+  placeholder.addEventListener("click", function (e) {
     e.stopPropagation();
     toggleDropdown();
   });
+  
+  // Toggle dropdown when clicking on selected tags container (if empty area)
+  selectedTagsContainer.addEventListener("click", function (e) {
+    if (e.target === selectedTagsContainer) {
+      e.stopPropagation();
+      toggleDropdown();
+    }
+  });
 
-  // Handle option selection - close dropdown when clicking inside
+  // Handle option selection - toggle tag selection
   dropdownMenu.addEventListener("click", function (e) {
     if (e.target.classList.contains("dropdown-option")) {
       const value = e.target.getAttribute("data-value");
-      const text = e.target.textContent;
-      handleTagFilter(value, text);
-      // Close dropdown immediately after selection
+      toggleTagFilter(value);
+    }
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!placeholder.contains(e.target) && 
+        !selectedTagsContainer.contains(e.target) && 
+        !dropdownMenu.contains(e.target)) {
       dropdownMenu.classList.remove("show");
     }
   });
@@ -332,4 +413,6 @@ function setupDropdownListeners() {
 document.addEventListener("DOMContentLoaded", function () {
   loadLocalData();
   setupDropdownListeners();
+  updateFilterDisplay(); // Initialize filter display
 });
+

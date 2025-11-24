@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAB R&D Library</title>
-    <link rel="icon" type="image/webp" href="Content/Images/LAB-favicon-resized.svg">
+    <link rel="icon" type="image/webp" href="Assets/Images/LAB-favicon.webp">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,23 +12,21 @@
         <div class="library-header">
             <div class="library-title">
                 A
-                <img src="Content/Images/LAB-favicon.webp" alt="LABrary" height="24px">
+                <img src="Assets/Images/LAB-favicon.webp" alt="LABrary" height="24px">
                 R&D Library of
             </div>
             <div class="library-nav">
-                <span class="dropdown-selected" id="dropdown-selected">Experiments</span>
-                <span class="dropdown-menu" id="dropdown-menu">
-                    <span class="dropdown-option selected" data-value="">All Experiments</span>
-                </span>
+                <span class="filter-placeholder" id="filter-placeholder">________</span>
+                <div class="selected-tags" id="selected-tags"></div>
+                <span class="dropdown-menu" id="dropdown-menu"></span>
             </div>
         </div>
-        <p style="width: 60%;">At the <a href="https://www.rockwellgroup.com/lab">LAB at Rockwell Group</a>, we have a robust R&D practice that explores new technologies and materials in service of building our creative practice, improving client facing work and nurturing curiosities. This library is a collection of some of our experiments.</p>
+        
     </div>
-    
+    <p id="intro-text">At the <a href="https://www.rockwellgroup.com/lab">LAB at Rockwell Group</a>, we have a robust R&D practice that explores new technologies and materials in service of building our creative practice, improving client facing work and nurturing curiosities. This library is a collection of some of our experiments.</p>
     <div id="projects-container">
         <!-- Projects will be dynamically loaded here -->
     </div>
-
     <script src="table.js"></script>
 </body>
 </html>

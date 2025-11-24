@@ -1,281 +1,379 @@
 {
-  "records": [
+  "2025": [
     {
-      "fields": {
-        "Project": "Gaze Tracking",
-        "Brief": "An experimental that tracks 2 users eye movement to control digital interactions. The experience is deseigned for both users to hold each others gaze. This project explores the potential of gaze-based interactions and microgestures allowing users to interact with content differently than they usually would.",
-        "Team": ["Philip"],
-        "Tags": ["Gestures", "Screens"],
-        "Made with": ["Touchdesigner", "Media Pipe", "Transparent LCD Display"],
-        "Year": "2025",
-        "Video": "Content/Videos/Gaze Tracking.mp4"
-      },
-      "active": true
+      "Tags": "Screens, Materiality",
+      "Project": "Glistening Flats",
+      "Date": "2025-10-21",
+      "Team": "Tanvi Mishra, Vedika Modi",
+      "Materials": "Metal Fabric, Wood, A Vase, Projection Mapping, tiny LCD Screen",
+      "Brief": "Experiments in the poetics of display technology: Esoteric explorations of screens that enable unexpected and tactile encounters with nature. ",
+      "Video": "Assets/Videos/Glistening Flats.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Holographic Bubble",
-        "Brief": "Playing with display technology to creates floating Years within a spherical enclosure. Using optical techniques and manipulation for an immersive visual experiences.",
-        "Team": ["DT"],
-        "Tags": ["Screens"],
-        "Made with": [],
-        "Year": "2025",
-        "Video": "Content/Videos/Holographic Bubble.mp4"
-      },
-      "active": true
-    },
-    
-    {
-      "fields": {
-        "Project": "Epipelagic",
-        "Brief": "",
-        "Team": ["Aaron", "Reine"],
-        "Tags": ["Optics"],
-        "Made with": [],
-        "Video": "Content/Videos/Ripple.mp4",
-        "Year": "2025"
-      },
-      "active": true
+      "Tags": "Sound, Gestures, Multiplayer",
+      "Project": "Gestural Music",
+      "Date": "2025-10-21",
+      "Team": "Jeff Barbieri",
+      "Materials": "Max MSP, Serum 2, Leap Motion",
+      "Brief": "An invisible, expressive, non-tactile way for people to compose music in real time with their movements. Each person plays a different instrument, allowing harmonization and a multi user interaction.",
+      "Video": "Assets/Videos/Gestural Music.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Illuminated Dress",
-        "Brief": "A fabric experiment that uses an LED mesh with an advatek controller to cycle through a couple fo looks. This project explores the intersection of fashion and technology, demonstrating the potential for interactive clothing in performance.",
-        "Team": ["Aaron"],
-        "Tags": ["Materials"],
-        "Made with": ["LED Mesh Fabric", "Advatek controller"],
-        "Year": "2025",
-        "Video": "Content/Videos/Illuminated Wearables.mp4"
-      },
-      "active": true
+      "Tags": "Light, Gestures",
+      "Project": "Floating Content",
+      "Date": "2025-10-21",
+      "Team": "Philip Mcausland, Dan Marino",
+      "Materials": "Rotary encoder, pulleys, aircraft cable, DMX-controlled LED strip, Arduino, Touchdesigner",
+      "Brief": "The rotary encoder captures pulley rotation allowing the position and directional movement of the LED fixture to be captured and influence the LED content. ",
+      "Video": "Assets/Videos/Floating Content.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Interactive Plane",
-        "Brief": "",
-        "Team": ["Jeff"],
-        "Tags": ["Gestures"],
-        "Made with": ["Motion Sensing", "Projection"],
-        "Year": "2025",
-        "Video": ""
-      },
-      "active": false
+      "Tags": "Light, Gestures",
+      "Project": "Moving Heads",
+      "Date": "2025-10-21",
+      "Team": "David Tracy",
+      "Materials": "TouchDesigner, Moving Head Spotlights (12 ch DMX)",
+      "Brief": "A study of controlled and choreographed light using Inverse Kinematics to resolve reflections and focus; redirecting light across compound surfaces into directed beams. ",
+      "Video": "Assets/Videos/Moving Heads.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "LED Mesh",
-        "Brief": "An architectural lighting installation featuring a suspended LED mesh structure building off of our work with Illuminated dresses with the potential to atach them to articulating wenches",
-        "Team": ["Aaron"],
-        "Tags": ["Materials"],
-        "Made with": ["LED Mesh Fabric","Advatek controller"],
-        "Year": "2025",
-        "Video": "Content/Videos/Led Mesh.mp4"
-      },
-      "active": true
+      "Tags": "Optics",
+      "Project": "Diffusion Layers",
+      "Date": "2025-10-21",
+      "Team": "Aaron Parsekian, Claire Hentschker",
+      "Materials": "Sandblasting, laser cutting, acrylic, and LED panel",
+      "Brief": "Creating physical distortion layers over video via sandblasting to transform digital screens into artificial windows.\nBy aligning and mapping video to sandblasted forms, the content can bend through texture, simulating environmental effects like rain, fog, or atmospheric depth that feel materially present rather than purely digital.",
+      "Video": null,
+      "Image": "Assets/Images/Diffusion Layers.jpg",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "3D Printed Lens Array",
-        "Brief": "",
-        "Team": ["Sam"],
-        "Tags": ["Optics", "Materials"],
-        "Made with": [],
-        "Year": "2025",
-        "Video": "Content/Videos/Lens Array.mp4"
-      },
-      "active": false
+      "Tags": "Materiality",
+      "Project": "Magnetic Fabric",
+      "Date": "2025-09-23",
+      "Team": "Tanvi Mishra, Andy Cheu",
+      "Materials": "Magnets, electromagnets, fabric\n3D printing on fabric, modelling",
+      "Brief": "Using electromagnets and magnets embedded in fabric to create a kinetic sculpture.",
+      "Video": null,
+      "Image": "Assets/Images/Magnetic Fabric.png",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "3D Printed Lenses",
-        "Brief": "Exploring different diffusion layers and fine tuning the effects they produce",
-        "Team": ["Sam"],
-        "Tags": ["Materials", "Optics"],
-        "Made with": [],
-        "Year": "2025",
-        "Video": "Content/Videos/3D Printed Lenses.mp4"
-      },
-      "active": true
+      "Tags": "Optics, Light",
+      "Project": "Epipelagic",
+      "Date": "2025-09-23",
+      "Team": "Aaron Parsekian, Reine DeFranco",
+      "Materials": "Ethylene Glycol, LED light, 3D printed bowl, Blender, Speaker (to add vibration)",
+      "Brief": "Visualize time through light & sound, where water conducts the visuals over time and can receive inputs from its immediate environment. Creates a unique image & movement that depicts the temperament of a space.",
+      "Video": "Assets/Videos/Ripple.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Light and Optics",
-        "Brief": "",
-        "Team": ["Jeff"],
-        "Tags": ["Optics"],
-        "Made with": [],
-        "Video": "",
-        "Year": "2025"
-      },
-      "active": false
+      "Tags": "Screens",
+      "Project": "Object to Volumetric Color Mix",
+      "Date": "2025-09-23",
+      "Team": "Jeff Barbieri, Sam Chen, Kate Ducey",
+      "Materials": "TouchDesigner, Azure Kinect Camera, Projector, Haze Spray",
+      "Brief": "Objects on a table can be moved to combine colors projected both on the floor and in the air, visible as volumetric projections in haze. Objects touching, overlapping, passing over or under one another produce color mixing.",
+      "Video": null,
+      "Active": false
     },
     {
-      "fields": {
-        "Project": "Pose to Point",
-        "Brief": "",
-        "Team": ["Gabe"],
-        "Tags": ["Gestures"],
-        "Made with": ["Pose Detection"], 
-        "Year": "2025",   
-        "Video": "Content/Videos/Pose to Point.mp4"
-      },
-      "active": false
+      "Tags": "XR",
+      "Project": "Dynamic Wayfinding",
+      "Date": "2025-09-23",
+      "Team": "Anthea Viloria, Andrew Cotter",
+      "Materials": "Unity, Meta Quest 3",
+      "Brief": "This prototype explores the capabilities of Unity's NavMesh features to inform dynamic guides for visitors in VR.",
+      "Video": "Assets/Videos/Dynamic Wayfinding.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Skylight",
-        "Brief": "",
-        "Team": ["Aaron"],
-        "Tags": ["Optics"],
-        "Made with": ["A hole in the roof"],
-        "Year": "2025",
-        "Video": "Content/Videos/Skylight.mp4"
-      },
-      "active": true
+      "Tags": "Gestures",
+      "Project": "Gaze Synth",
+      "Date": "2025-09-23",
+      "Team": "Philip Mcausland",
+      "Materials": "TouchDesigner + Ableton Live 12",
+      "Brief": "This serves as an opportunity to imagine gaze interaction beyond visuals exploreing how gaze may be better suited for types of interactions that don't require precision yet still have fun impactful results.",
+      "Video": null,
+      "Active": false
     },
     {
-      "fields": {
-        "Project": "Dichroic Pixels",
-        "Brief": "Using dichroic screen, fabricated enclosures and rotating servo motors to create a sun dappled look",
-        "Team": ["Aaron", "DT"],
-        "Tags": ["Optics", "Materials"],
-        "Made with": ["Dichroic Film", "Servo motors"],
-        "Year": "2024",
-        "Video": "Content/Videos/Dichroic Pixels.mp4"
-      },
-      "active": true
+      "Tags": "Screens",
+      "Project": "Hologram Bubbles",
+      "Date": "2025-09-23",
+      "Team": "David Tracy",
+      "Materials": "Transparent display (OLED), 3\" Acrylic Hemispheres, 3D Printed Armatures and Aircraft cable clamps, Gemini 2.5 & Kling 2.1, TouchDesigner ",
+      "Brief": "The optical properties of the dome creates and illusion of parallax and depth when combined with purpose built content and semi transparent display.",
+      "Video": "Assets/Videos/Hologram Bubbles.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Fiber Optics",
-        "Brief": "",
-        "Team": ["Aaron", "Sam", "Andy"],
-        "Tags": ["Optics", "Materials"],
-        "Made with": ["Fiber Optics", "Concrete"],
-        "Video": "Content/Videos/Fiber Optic.mp4",
-        "Year": "2024-25"
-      },
-      "active": true
+      "Tags": "Optics",
+      "Project": "Skylight",
+      "Date": "2025-07-31",
+      "Team": "Aaron Parsekian",
+      "Materials": "Hole in the roof",
+      "Brief": "A meditative sky watching experience that breaks up our work by bringing the environment within built spaces. It is, coincidentally, situated on a flight path.",
+      "Video": "Assets/Videos/Skylight.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Hologauze",
-        "Brief": "",
-        "Team": ["Jeff", "Casey"],
-        "Tags": ["Screens", "Sounds"],
-        "Made with": [],
-        "Video": "Content/Videos/Hologauze.mp4",
-        "Year": "2024"
-      },
-      "active": true
+      "Tags": "Projection, Gestures",
+      "Project": "Interactive Plane",
+      "Date": "2025-07-30",
+      "Team": "Jeff Barbieri",
+      "Materials": "Projection, touchdesigner",
+      "Brief": null,
+      "Video": "Assets/Videos/Interactive Plane.mp4",
+      "Active": false
     },
     {
-      "fields": {
-        "Project": "Interactive Tabletop",
-        "Brief": "",
-        "Team": ["Casey", "Jeff"],
-        "Tags": ["Sounds"],
-        "Made with": [],
-        "Video": "Content/Videos/Interactive Tabletop.mp4",
-        "Year": "2024"
-      },
-      "active": true
+      "Tags": "Screens, Materiality",
+      "Project": "LED Mesh",
+      "Date": "2025-06-30",
+      "Team": "Aaron Parsekian",
+      "Materials": "LED Mesh Fabric, Advatek controller",
+      "Brief": "This piece features 1,600 individually controlled LEDs stitched into custom mesh\u2014each one programmed with pixel-mapped video content.",
+      "Video": "Assets/Videos/LED Mesh.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Spatial Synth",
-        "Brief": "",
-        "Team": ["Casey", "Jeff"],
-        "Tags": ["Sounds"],
-        "Made with": [],
-        "Video": "Content/Videos/Spatial Synth.mp4",
-        "Year": "2024"
-      },
-      "active": true
+      "Tags": "Gestures",
+      "Project": "Pose to Point",
+      "Date": "2025-08-04",
+      "Team": "Gabe Kimmelman",
+      "Materials": "Touchdesigner, Grasshopper, Media Pipe, Pose to point",
+      "Brief": null,
+      "Video": "Assets/Videos/Pose to Point.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Jeff Splatbieri",
-        "Brief": "Gaussian Splat",
-        "Team": ["Philip", "Jeff", "Aaron"],
-        "Tags": ["Screens"],
-        "Made with": ["Gaussian Splatting"],
-        "Video": "Content/Videos/Jeff Splatbieri.mp4",
-        "Year": "2024"
-      },
-      "active": true
+      "Tags": "Optics",
+      "Project": "3D Printed Lenses",
+      "Date": "2025-05-12",
+      "Team": "Sam Chen",
+      "Materials": "3D printing, Arduinos, Server motors",
+      "Brief": "Fabricating different diffusion layers and fine tuning the effects they produce. These 3D printed lenses are constantly in motion shapeshifting and dynamically altering the visuals behind.",
+      "Video": "Assets/Videos/3D Printed Lenses.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Lab Logo",
-        "Brief": "",
-        "Team": ["Sam"],
-        "Tags": ["Screens"],
-        "Made with": [],
-        "Video": "Content/Videos/Lab Logo.mp4",
-        "Year": "2024"
-      },
-      "active": true
+      "Tags": "Gestures, multiplayer",
+      "Project": "Gaze Tracking",
+      "Date": "2025-05-15",
+      "Team": "Philip Mcausland",
+      "Materials": "Touchdesigner, Media Pipe, Transparent LCD Display",
+      "Brief": " Both users have to hold each others gaze for this digital interaction. This project explores the potential of gaze-based interactions and microgestures as a surprising control.",
+      "Video": "Assets/Videos/Gaze Tracking.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Mirror and Lens",
-        "Brief": "",
-        "Team": ["Sam"],
-        "Tags": ["Materials"],
-        "Made with": ["Mirrors", "3D printed Lenses"],
-        "Video": "Content/Videos/Mirror and Lens.mp4",
-        "Year": "2024"
-      },
-      "active": true
+      "Tags": "Screens, Materiality",
+      "Project": "Illuminated Wearable",
+      "Date": "2025-05-13",
+      "Team": "Aaron Parsekian",
+      "Materials": "LED Mesh Fabric, Advatek controller",
+      "Brief": "This piece features 1,600 individually controlled LEDs stitched into custom mesh\u2014each one programmed with pixel-mapped video content.",
+      "Video": "Assets/Videos/Illuminated Wearables.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "3D Printed Fabric",
-        "Brief": "",
-        "Team": ["Sam"],
-        "Tags": ["Materials"],
-        "Made with": [],
-        "Video": "Content/Videos/3D Printed Fabric.mp4",
-        "Year": "2025"
-      },
-      "active": true
+      "Tags": "XR, Multiplayer",
+      "Project": "Inside Baseball",
+      "Date": "2025-05-16",
+      "Team": "Andrew Cotter",
+      "Materials": "Unity, Meta Quest 3",
+      "Brief": "This is a multiplayer, collocated approach to mixed reality baseball. Playing with room meshes and scales in this proof of concept.",
+      "Video": "Assets/Videos/Inside Baseball.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Stretchable Screen(1)",
-        "Brief": "",
-        "Team": ["Casey"],
-        "Tags": ["Materials","Screens","Gestures"],
-        "Made with": [],
-        "Video": "Content/Videos/Stretchable Screen 1.mp4",
-        "Year": "2024"
-      },
-      "active": true
+      "Tags": "XR, Multiplayer",
+      "Project": "MR Presentation",
+      "Date": "2025-05-13",
+      "Team": "Tanvi Mishra, Andrew Cotter",
+      "Materials": "Unity, Meta Quest 3, Photon Fusion",
+      "Brief": "This is a multiplayer, collocated presentation wherein we can move between MR and AR with a \"presenter\" leading the audience through the experience - letting them focus on markups and information absorbption rather than controls. ",
+      "Video": "Assets/Videos/MR Presentation.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Stretchable Screen(2)",
-        "Brief": "",
-        "Team": ["Casey"],
-        "Tags": ["Materials","Screens","Gestures"],
-        "Made with": [],
-        "Video": "Content/Videos/Stretchable Screen 2.mp4",
-        "Year": "2024"
-      },
-      "active": true
+      "Tags": "Materiality",
+      "Project": "3D printed Fabric",
+      "Date": "2025-03-17",
+      "Team": "Sam Chen",
+      "Materials": "Fabric, 3D printing, Embroidery hoops, magnets",
+      "Brief": "Initial tests of 3D prininting on fabric toalter and fine tune dimensionality, form and movement.",
+      "Video": "Assets/Videos/3D printed Fabric.mp4",
+      "Active": true
     },
     {
-      "fields": {
-        "Project": "Stream Diffusion",
-        "Brief": "",
-        "Team": ["Sam", "Casey"],
-        "Tags": ["Screens", "Gestures"],
-        "Made with": [],
-        "Video": "Content/Videos/Stable Diffusion.mp4",
-        "Year": "2023"
-      },
-      "active": true
+      "Tags": "XR",
+      "Project": "AR Geospatial",
+      "Date": "2025-03-17",
+      "Team": "Tanvi Mishra",
+      "Materials": "Unity",
+      "Brief": "A simple proof of concept on using AR geospatial markers in service of large, site-specific gestures",
+      "Video": null,
+      "Active": false
+    },
+    {
+      "Tags": "Materiality",
+      "Project": "Fiber Optics",
+      "Date": "2025-03-17",
+      "Team": "Sam Chen, Aaron Parsekian, Tanvi Mishra",
+      "Materials": "Concrete, 3D printing, Fiber Optics",
+      "Brief": "Fiber optics embedded in concrete lit up and animated",
+      "Video": "Assets/Videos/Fiber Optics.mp4",
+      "Active": true
+    },
+    {
+      "Tags": "Sound",
+      "Project": "Outfit to Music",
+      "Date": "2025-03-17",
+      "Team": "Jeff Barbieri",
+      "Materials": null,
+      "Brief": "Picking up on the colors in clothing and synthesising it into ambient music",
+      "Video": "Assets/Videos/Outfit to Music.mp4",
+      "Active": true
+    },
+    {
+      "Tags": "XR, Multiplayer, Gestures",
+      "Project": "MR Sol Lewitt",
+      "Date": "2025-03-17",
+      "Team": "Tanvi Mishra, Andrew Cotter, Jeff Barbieri",
+      "Materials": "Unity, Meta Quest 3",
+      "Brief": "This is a multi-user demo with two roles that are collaboratively creating.  The \"alchemist\" has a mobile device from which they can control the rules of the interactions.  The \"artists\" in Meta Quest Headsets can create strokes informed by the alchemist. ",
+      "Video": "Assets/Videos/MR Sol Lewitt.mp4",
+      "Active": true
+    }
+  ],
+  "2024": [
+    {
+      "Project": "Dichroic Pixels",
+      "Tags": "Optics, Materiality, Light",
+      "Date": "2024-01-01",
+      "Team": "Aaron Parsekian, David Tracy",
+      "Materials": "Dichroic Film, Servo motors",
+      "Brief": "Using dichroic screen, fabricated enclosures and rotating servo motors to create a sun dappled look",
+      "Video": "Assets/Videos/Dichroic Pixels.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Hologauze",
+      "Tags": "Screens, Sound",
+      "Date": "2024-01-01",
+      "Team": "Jeff Barbieri, Casey Conchinha",
+      "Materials": null,
+      "Brief": null,
+      "Video": "Assets/Videos/Hologauze.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Interactive Tabletop",
+      "Tags": "Screens, Sound",
+      "Date": "2024-01-01",
+      "Team": "Jeff Barbieri, Casey Conchinha",
+      "Materials": null,
+      "Brief": null,
+      "Video": "Assets/Videos/Interactive Tabletop.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Spatial Synth",
+      "Tags": "Sound, Gestures, Multiplayer",
+      "Date": "2024-01-01",
+      "Team": "Jeff Barbieri, Casey Conchinha",
+      "Materials": null,
+      "Brief": null,
+      "Video": "Assets/Videos/Spatial Synth.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Jeff Splatbieri",
+      "Tags": "Screens",
+      "Date": "2024-01-01",
+      "Team": "Jeff Barbieri, Philip Mcausland, Aaron Parsekian",
+      "Materials": "Gaussian Splatting",
+      "Brief": null,
+      "Video": "Assets/Videos/Jeff Splatbieri.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Lab Logo",
+      "Tags": "Screens",
+      "Date": "2024-01-01",
+      "Team": "Sam Chen",
+      "Materials": null,
+      "Brief": null,
+      "Video": "Assets/Videos/Lab Logo.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Mirror and Lens",
+      "Tags": "Materiality, Optics, Screens",
+      "Date": "2024-01-01",
+      "Team": "Sam Chen",
+      "Materials": "Mirrors, 3D printed lenses",
+      "Brief": null,
+      "Video": "Assets/Videos/Mirror and Lens.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "3D Printed Fabric",
+      "Tags": "Materiality",
+      "Date": "2024-01-01",
+      "Team": "Magnets, fabric​\n3D printing on fabric, embroidery hoop",
+      "Materials": "3d printing on fabric",
+      "Brief": null,
+      "Video": "Assets//Videos/3D Printed Fabric.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Stretchable Screens",
+      "Tags": "Materiality, Screens, Gestures",
+      "Date": "2024-01-01",
+      "Team": "Casey Conchinha",
+      "Materials": null,
+      "Brief": null,
+      "Video": "Assets/Videos/Stretchable Screen 1.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Stretchable Screens",
+      "Tags": "Materiality, Screens, Gestures",
+      "Date": "2024-01-01",
+      "Team": "Casey Conchinha",
+      "Materials": null,
+      "Brief": null,
+      "Video": "Assets/Videos/Stretchable Screen 2.mp4",
+      "Image": null,
+      "Active": true
+    },
+    {
+      "Project": "Stream Diffusion",
+      "Tags": "Screens, Gestures",
+      "Date": "2024-01-01",
+      "Team": "Casey Conchinha, Sam Chen",
+      "Materials": null,
+      "Brief": null,
+      "Video": "Assets/Videos/Stable Diffusion.mp4",
+      "Image": null,
+      "Active": true
     }
   ]
 }
