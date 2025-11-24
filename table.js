@@ -36,6 +36,7 @@ function loadLocalData() {
 // Global variables for filtering
 let allRecords = [];
 let selectedFilters = []; // Array to store multiple selected tags
+let totalProjectCount = 0; // Store total count of all projects
 
 // Helper function to parse tags from string to array
 function parseTags(tagsString) {
@@ -88,6 +89,9 @@ function displayProjects(records) {
 
   // Populate tag dropdown
   populateTagFilter(validRecords);
+  
+  // Store total count for display
+  totalProjectCount = validRecords.length;
 
   filteredRecords.forEach((record, index) => {
     const projectDiv = document.createElement("div");
@@ -141,7 +145,6 @@ function displayProjects(records) {
                 <div class="project-meta">
                     ${teamText ? `<p class="project-team">by ${teamText}</p>` : ""}
                     ${yearText ? `<p class="project-year">${yearText}</p>` : ""}
-                    ${madeWithText ? `<p class="project-made-with">${madeWithText}</p>` : ""}
                 </div>
             </div>
             <div class="project-brief" style="display: none;">
@@ -169,6 +172,9 @@ function displayProjects(records) {
 
     container.appendChild(projectDiv);
   });
+  
+  // Update counter at bottom
+  updateProjectCounter(filteredRecords.length, totalProjectCount);
 }
 
 // Toggle project expansion within the grid
@@ -208,6 +214,22 @@ function collapseProject(projectDiv) {
     if (projectBrief) projectBrief.style.display = 'none';
     projectDiv.classList.remove('collapsing');
   }, 400); // Match animation duration
+}
+
+// Update project counter at bottom
+function updateProjectCounter(shownCount, totalCount) {
+  let counterElement = document.getElementById('project-counter');
+  
+  if (!counterElement) {
+    // Create counter element if it doesn't exist
+    counterElement = document.createElement('p');
+    counterElement.id = 'project-counter';
+    counterElement.className = 'project-counter';
+    const container = document.getElementById('projects-container');
+    container.parentNode.insertBefore(counterElement, container.nextSibling);
+  }
+  
+  counterElement.textContent = `Showing: ${shownCount}/${totalCount}`;
 }
 
 // Populate tag filter dropdown
