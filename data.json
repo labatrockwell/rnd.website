@@ -139,7 +139,7 @@
       "Team": "Aaron Parsekian",
       "Materials": "LED Mesh Fabric, Advatek controller",
       "Brief": "This piece features 1,600 individually controlled LEDs stitched into custom mesh\u2014each one programmed with pixel-mapped video content.",
-      "Video": "Assets/Videos/LED Mesh.mp4",
+      "Video": "Assets/Videos/Led Mesh.mp4",
       "Active": true
     },
     {
@@ -443,3 +443,4 @@
     }
   ]
 }
+
