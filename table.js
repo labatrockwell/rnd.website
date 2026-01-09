@@ -16,11 +16,27 @@ function loadLocalData() {
           });
         }
       });
-      
+
       if (records.length > 0) {
-        // Shuffle only once on initial load and store in global allRecords
-        allRecords = shuffleArray(records);
-        displayProjects(allRecords);
+        // Sort by date (newest to oldest)
+        records.sort((a, b) => {
+          const dateA = parseDate(a["Date"]);
+          const dateB = parseDate(b["Date"]);
+
+          // If both dates are valid, compare them
+          if (dateA && dateB) {
+            return dateB - dateA; // Newest first (descending)
+          }
+
+          // If only one has a date, prioritize it
+          if (dateA && !dateB) return -1;
+          if (dateB && !dateA) return 1;
+
+          // If neither has a date, maintain original order
+          return 0;
+        });
+
+        displayProjects(records);
       } else {
         document.getElementById("projects-container").innerHTML =
           "<p>No projects found.</p>";
@@ -41,7 +57,34 @@ let totalProjectCount = 0; // Store total count of all projects
 // Helper function to parse tags from string to array
 function parseTags(tagsString) {
   if (!tagsString) return [];
-  return tagsString.split(",").map((tag) => tag.trim()).filter((tag) => tag);
+  return tagsString
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter((tag) => tag);
+}
+
+// Helper function to parse date string to Date object
+function parseDate(dateString) {
+  if (!dateString) return null;
+
+  // Try YYYY-MM-DD format first (used in 2025, 2026)
+  if (dateString.includes("-")) {
+    const parts = dateString.split("-");
+    if (parts.length === 3) {
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    }
+  }
+
+  // Try DD/MM/YYYY format (used in 2024)
+  if (dateString.includes("/")) {
+    const parts = dateString.split("/");
+    if (parts.length === 3) {
+      // DD/MM/YYYY format
+      return new Date(parts[2], parts[1] - 1, parts[0]);
+    }
+  }
+
+  return null;
 }
 
 // Helper function to extract year from date
@@ -76,20 +119,21 @@ function displayProjects(records) {
   });
 
   // Apply tag filters if active (projects must have at least one of the selected tags)
-  const filteredRecords = selectedFilters.length > 0
-    ? validRecords.filter((record) => {
-        const tagsString = record["Tags"] || "";
-        const tags = parseTags(tagsString);
-        return selectedFilters.some(filter => tags.includes(filter));
-      })
-    : validRecords;
+  const filteredRecords =
+    selectedFilters.length > 0
+      ? validRecords.filter((record) => {
+          const tagsString = record["Tags"] || "";
+          const tags = parseTags(tagsString);
+          return selectedFilters.some((filter) => tags.includes(filter));
+        })
+      : validRecords;
 
   // Don't shuffle here - use the already shuffled order from initial load
   // Filtering maintains the original shuffled order
 
   // Populate tag dropdown
   populateTagFilter(validRecords);
-  
+
   // Store total count for display
   totalProjectCount = validRecords.length;
 
@@ -143,7 +187,11 @@ function displayProjects(records) {
             <h3 class="project-name">${projectName}</h3>
             <div class="project-info" style="display: none;">
                 <div class="project-meta">
-                    ${teamText ? `<p class="project-team">by ${teamText}</p>` : ""}
+                    ${
+                      teamText
+                        ? `<p class="project-team">by ${teamText}</p>`
+                        : ""
+                    }
                     ${yearText ? `<p class="project-year">${yearText}</p>` : ""}
                 </div>
             </div>
@@ -172,63 +220,63 @@ function displayProjects(records) {
 
     container.appendChild(projectDiv);
   });
-  
+
   // Update counter at bottom
   updateProjectCounter(filteredRecords.length, totalProjectCount);
 }
 
 // Toggle project expansion within the grid
 function toggleProjectExpansion(projectDiv, record) {
-  const isExpanded = projectDiv.classList.contains('expanded');
-  
+  const isExpanded = projectDiv.classList.contains("expanded");
+
   // Collapse all other expanded projects
-  document.querySelectorAll('.project-card.expanded').forEach(card => {
+  document.querySelectorAll(".project-card.expanded").forEach((card) => {
     if (card !== projectDiv) {
       collapseProject(card);
     }
   });
-  
+
   if (isExpanded) {
     // Collapse this project with animation
     collapseProject(projectDiv);
   } else {
     // Expand this project
-    projectDiv.classList.add('expanded');
-    const projectInfo = projectDiv.querySelector('.project-info');
-    const projectBrief = projectDiv.querySelector('.project-brief');
-    if (projectInfo) projectInfo.style.display = 'block';
-    if (projectBrief) projectBrief.style.display = 'block';
+    projectDiv.classList.add("expanded");
+    const projectInfo = projectDiv.querySelector(".project-info");
+    const projectBrief = projectDiv.querySelector(".project-brief");
+    if (projectInfo) projectInfo.style.display = "block";
+    if (projectBrief) projectBrief.style.display = "block";
   }
 }
 
 // Collapse project with animation
 function collapseProject(projectDiv) {
-  projectDiv.classList.add('collapsing');
-  projectDiv.classList.remove('expanded');
-  
+  projectDiv.classList.add("collapsing");
+  projectDiv.classList.remove("expanded");
+
   // Wait for animation to complete before hiding content
   setTimeout(() => {
-    const projectInfo = projectDiv.querySelector('.project-info');
-    const projectBrief = projectDiv.querySelector('.project-brief');
-    if (projectInfo) projectInfo.style.display = 'none';
-    if (projectBrief) projectBrief.style.display = 'none';
-    projectDiv.classList.remove('collapsing');
+    const projectInfo = projectDiv.querySelector(".project-info");
+    const projectBrief = projectDiv.querySelector(".project-brief");
+    if (projectInfo) projectInfo.style.display = "none";
+    if (projectBrief) projectBrief.style.display = "none";
+    projectDiv.classList.remove("collapsing");
   }, 400); // Match animation duration
 }
 
 // Update project counter at bottom
 function updateProjectCounter(shownCount, totalCount) {
-  let counterElement = document.getElementById('project-counter');
-  
+  let counterElement = document.getElementById("project-counter");
+
   if (!counterElement) {
     // Create counter element if it doesn't exist
-    counterElement = document.createElement('p');
-    counterElement.id = 'project-counter';
-    counterElement.className = 'project-counter';
-    const container = document.getElementById('projects-container');
+    counterElement = document.createElement("p");
+    counterElement.id = "project-counter";
+    counterElement.className = "project-counter";
+    const container = document.getElementById("projects-container");
     container.parentNode.insertBefore(counterElement, container.nextSibling);
   }
-  
+
   counterElement.textContent = `Showing: ${shownCount}/${totalCount}`;
 }
 
@@ -308,13 +356,13 @@ function toggleTagFilter(tagValue) {
     // Add if not selected
     selectedFilters.push(tagValue);
   }
-  
+
   // Update UI
   updateFilterDisplay();
-  
+
   // Close dropdown
   document.getElementById("dropdown-menu").classList.remove("show");
-  
+
   // Re-display with new filters
   displayProjects(allRecords);
 }
@@ -333,17 +381,17 @@ function removeFilterTag(tagValue) {
 function updateFilterDisplay() {
   const placeholder = document.getElementById("filter-placeholder");
   const selectedTagsContainer = document.getElementById("selected-tags");
-  
+
   // Clear selected tags container
   selectedTagsContainer.innerHTML = "";
-  
+
   if (selectedFilters.length === 0) {
     // Show placeholder
     placeholder.style.display = "inline";
   } else {
     // Hide placeholder and show selected tags
     placeholder.style.display = "none";
-    
+
     selectedFilters.forEach((tag) => {
       const tagElement = document.createElement("span");
       tagElement.className = "selected-tag";
@@ -351,25 +399,25 @@ function updateFilterDisplay() {
         <span class="tag-name">${tag}</span>
         <span class="tag-remove" data-tag="${tag}">×</span>
       `;
-      
+
       // Add click handler for remove button
       const removeBtn = tagElement.querySelector(".tag-remove");
       removeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         removeFilterTag(tag);
       });
-      
+
       // Add click handler for tag name to open dropdown
       const tagName = tagElement.querySelector(".tag-name");
       tagName.addEventListener("click", (e) => {
         e.stopPropagation();
         toggleDropdown();
       });
-      
+
       selectedTagsContainer.appendChild(tagElement);
     });
   }
-  
+
   // Update dropdown option states
   document.querySelectorAll(".dropdown-option").forEach((option) => {
     const optionValue = option.getAttribute("data-value");
@@ -406,7 +454,7 @@ function setupDropdownListeners() {
     e.stopPropagation();
     toggleDropdown();
   });
-  
+
   // Toggle dropdown when clicking on selected tags container (if empty area)
   selectedTagsContainer.addEventListener("click", function (e) {
     if (e.target === selectedTagsContainer) {
@@ -422,12 +470,14 @@ function setupDropdownListeners() {
       toggleTagFilter(value);
     }
   });
-  
+
   // Close dropdown when clicking outside
   document.addEventListener("click", function (e) {
-    if (!placeholder.contains(e.target) && 
-        !selectedTagsContainer.contains(e.target) && 
-        !dropdownMenu.contains(e.target)) {
+    if (
+      !placeholder.contains(e.target) &&
+      !selectedTagsContainer.contains(e.target) &&
+      !dropdownMenu.contains(e.target)
+    ) {
       dropdownMenu.classList.remove("show");
     }
   });
@@ -439,4 +489,3 @@ document.addEventListener("DOMContentLoaded", function () {
   setupDropdownListeners();
   updateFilterDisplay(); // Initialize filter display
 });
-
