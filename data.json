@@ -5,8 +5,8 @@
       "Project": "Floating Light Strips",
       "Date": "2026-01-07",
       "Team": "Philip Mcausland, Dan Marino",
-      "Materials": "Rotary encoder, pulleys, aircraft cable, DMX-controlled LED strip, Arduino, Touchdesigner",
-      "Brief": "The rotary encoder captures pulley rotation allowing the position and directional movement of the LED fixture to be captured and influence the LED content. ",
+      "Materials": "Rotary encoder, Pulleys, Aircraft cable, DMX-controlled LED strip, Arduino, TouchDesigner",
+      "Brief": "The rotary encoder captures pulley rotation allowing the position and directional movement of the LED fixture to be captured and influence the LED content.",
       "Video": "Assets/Videos/Floating Light Strips 1.mp4",
       "Active": true
     },
@@ -15,18 +15,18 @@
       "Project": "Floating Light Strips",
       "Date": "2026-01-07",
       "Team": "Philip Mcausland, Dan Marino",
-      "Materials": "Rotary encoder, pulleys, aircraft cable, DMX-controlled LED strip, Arduino, Touchdesigner",
-      "Brief": "The rotary encoder captures pulley rotation allowing the position and directional movement of the LED fixture to be captured and influence the LED content. ",
+      "Materials": "Rotary encoder, pulleys, aircraft cable, DMX-controlled LED strip, Arduino, TouchDesigner",
+      "Brief": "The rotary encoder captures pulley rotation allowing the position and directional movement of the LED fixture to be captured and influence the LED content.This study explores the relational capabilities of the LED fixtures, their relative positions to each other influencing the content",
       "Video": "Assets/Videos/Floating Light Strips 2.mp4",
       "Active": true
     },
     {
-      "Tags": "Screens, Materiality",
+      "Tags": "Screens, Materiality, Gestures",
       "Project": "Glistening Flats",
       "Date": "2026-01-07",
       "Team": "Tanvi Mishra, Vedika Modi",
-      "Materials": "Metal Mesh, Projection Mapping, Sick Lidar Sensor, Touchdesigner",
-      "Brief": "Experiments in the poetics of display technology: Esoteric explorations of screens that enable unexpected and tactile encounters with nature. ",
+      "Materials": "Metal Mesh, Projection Mapping, Sick Lidar Sensor, TouchDesigner",
+      "Brief": "Experiments in the poetics of display technology: Esoteric explorations of screens that enable unexpected and tactile encounters with rivers.",
       "Video": "Assets/Videos/Glistening Flats.mp4",
       "Active": true
     },
@@ -36,12 +36,12 @@
       "Date": "2026-01-07",
       "Team": "Tanvi Mishra, Vedika Modi",
       "Materials": "A Vase, tiny LCD Screen, wood",
-      "Brief": "Experiments in the poetics of display technology: Esoteric explorations of screens that enable unexpected and tactile encounters with nature. ",
+      "Brief": "Experiments in the poetics of display technology: Esoteric explorations of screens that enable unexpected and tactile encounters with rivers. Exploring embedded screens in objects, viewers can peer into a river within a vase to have an intimate encounter with the water.",
       "Image": "Assets/Images/Reservoirs.png",
       "Active": true
     },
     {
-      "Tags": "Optics, Light",
+      "Tags": "Materiality, Optics, Light",
       "Project": "Caustic Lantern",
       "Date": "2026-01-07",
       "Team": "Aaron Parsekian, Reine DeFranco",
@@ -51,37 +51,37 @@
       "Active": true
     },
     {
-      "Tags": "Materiality, Optics",
+      "Tags": "Materiality,Light, Sound",
       "Project": "Magnetic Surfaces",
       "Date": "2026-01-07",
       "Team": "Anthea Viloria, Sam Chen",
-      "Materials": "",
-      "Brief": "",
+      "Materials": "Electromagnets, Metal meshes, Acrylic base, Light panel​",
+      "Brief": "A study of interactive gestures using magnetic attraction, suggesting applications of visual and audio expression on architectural surfaces.",
       "Video": "Assets/Videos/Magnetic Surfaces.mp4",
       "Active": true
     },
     {
-      "Tags": "Gestures, Haptics",
-      "Project": "Tactile Interactives",
+      "Tags": "Gestures, Haptics, Sound",
+      "Project": "Tactile Interactive",
       "Date": "2026-01-07",
-      "Team": "",
-      "Materials": "",
-      "Brief": "",
+      "Team": "Jeff Barbieri",
+      "Materials": "Max MSP, TouchDesigner, Expressive E Touche, Butt Kicker",
+      "Brief": "Guided by the guest's interaction with a magical object, colors move across the wall, leaving trails behind. Sound follows the movement, and haptic feedback creates the sensation that the colors are embedded into the material itself.",
       "Video": "Assets/Videos/Tactile Interactives.mp4",
       "Active": true
     },
     {
-      "Tags": "Screens",
+      "Tags": "Screens, Gestures",
       "Project": "Microcosms",
       "Date": "2026-01-07",
       "Team": "David Tracy",
-      "Materials": "Transparent display (OLED), 3\" Acrylic Hemispheres, 3D Printed Armatures and Aircraft cable clamps, Gemini 2.5 & Kling 2.1, TouchDesigner ",
-      "Brief": "The optical properties of the dome creates and illusion of parallax and depth when combined with purpose built content and semi transparent display.",
+      "Materials": "Transparent display (OLED), Acrylic Hemispheres, 3D Printed Armatures and Aircraft cable clamps, Gemini 2.5 & Kling 2.1, TouchDesigner ",
+      "Brief": "A glass dome creates an illusion of parallax and depth when combined with purpose-built content and semi-transparent display.The project is now updated to include hand tracking to trigger changes in the screen content. ",
       "Video": "Assets/Videos/Microcosms.mp4",
       "Active": true
     },
     {
-      "Tags": "Optics",
+      "Tags": "Screens, Optics",
       "Project": "Diffusion Layers",
       "Date": "2026-01-07",
       "Team": "Aaron Parsekian, Claire Hentschker",
@@ -95,8 +95,8 @@
       "Project": "A Light Touch",
       "Date": "2026-01-07",
       "Team": "David Tracy",
-      "Materials": "",
-      "Brief": "",
+      "Materials": "Moving Head Spotlights",
+      "Brief": "Choreographed lighting, sensing systems, and media systems respond to guests in real-time to open possibilities for wayfinding, discover, storytelling, and delight. ",
       "Video": "Assets/Videos/A Light Touch.mp4",
       "Active": true
     }
@@ -138,7 +138,7 @@
       "Project": "Floating Light Strips",
       "Date": "2025-10-21",
       "Team": "Philip Mcausland, Dan Marino",
-      "Materials": "Rotary encoder, pulleys, aircraft cable, DMX-controlled LED strip, Arduino, Touchdesigner",
+      "Materials": "Rotary encoder, pulleys, aircraft cable, DMX-controlled LED strip, Arduino, TouchDesigner",
       "Brief": "The rotary encoder captures pulley rotation allowing the position and directional movement of the LED fixture to be captured and influence the LED content. ",
       "Video": "Assets/Videos/Floating Content.mp4",
       "Active": true
@@ -175,7 +175,7 @@
     },
     {
       "Tags": "Screens",
-      "Project": "Hologram Bubbles",
+      "Project": "Microcosms",
       "Date": "2025-09-23",
       "Team": "David Tracy",
       "Materials": "Transparent display (OLED), 3\" Acrylic Hemispheres, 3D Printed Armatures and Aircraft cable clamps, Gemini 2.5 & Kling 2.1, TouchDesigner ",
@@ -198,7 +198,7 @@
       "Project": "Interactive Plane",
       "Date": "2025-07-30",
       "Team": "Jeff Barbieri",
-      "Materials": "Projection, touchdesigner",
+      "Materials": "Projection, TouchDesigner",
       "Brief": null,
       "Video": "Assets/Videos/Interactive Plane.mp4",
       "Active": false
@@ -218,7 +218,7 @@
       "Project": "Pose to Point",
       "Date": "2025-08-04",
       "Team": "Gabe Kimmelman",
-      "Materials": "Touchdesigner, Grasshopper, Media Pipe, Pose to point",
+      "Materials": "TouchDesigner, Grasshopper, Media Pipe, Pose to point",
       "Brief": null,
       "Video": "Assets/Videos/Pose to Point.mp4",
       "Active": true
@@ -238,7 +238,7 @@
       "Project": "Gaze Tracking",
       "Date": "2025-05-15",
       "Team": "Philip Mcausland",
-      "Materials": "Touchdesigner, Media Pipe, Transparent LCD Display",
+      "Materials": "TouchDesigner, Media Pipe, Transparent LCD Display",
       "Brief": " Both users have to hold each others gaze for this digital interaction. This project explores the potential of gaze-based interactions and microgestures as a surprising control.",
       "Video": "Assets/Videos/Gaze Tracking.mp4",
       "Active": true

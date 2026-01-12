@@ -4,7 +4,6 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
     max-width: 80vw;
     margin: 150px auto 0px auto;
     line-height: 1.6;
@@ -13,7 +12,8 @@ body {
 }
 
 * {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: Atlas Grotesk, sans-serif;
 }
 a{
     text-decoration: underline;
@@ -76,8 +76,9 @@ p{
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: Arial, sans-serif;
     white-space: normal;
+    text-transform: uppercase;
+    
 }
 intro-text {
     width: 60% !important;
@@ -95,12 +96,13 @@ intro-text {
     gap: 10px;
     flex-wrap: wrap;
     font-size: 24px; /* base size for header controls */
-    font-weight: bold; /* base weight for header controls */
     color: var(--color-text);
-    font-family: Arial, sans-serif;
 }
 .selected-tags{
     cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--color-text);
 }
 .dropdown-selected {
     color: var(--color-text);
@@ -164,7 +166,6 @@ intro-text {
     color: var(--color-text);
     font-size: 1em;
     font-weight: normal;
-    font-family: Arial, sans-serif;
     text-align: left;
     text-transform: uppercase;
 }
